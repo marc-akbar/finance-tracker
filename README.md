@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the finance tracker app built from the Complete Ruby on Rails Developer
+course on Udemy.
 
-Things you may want to cover:
+It aims to create a social media platform where users track stock data.
 
-* Ruby version
+This app will test Devise, Bootstrap and rapid prototyping methods. This will
+also be the first app in this course to utilize search features.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Ruby 2.6.0
+Rails 5.2.3
