@@ -3,7 +3,10 @@ class StocksController < ApplicationController
     if params[:stock].present?
       @stock = Stock.new_from_lookup(params[:stock])
       if @stock
-        render 'users/my_portfolio'
+        respond_to do |format|
+          # only renders the partial
+          format.js { render partial: 'users/result' }
+        end
       else
         flash[:danger] = "You have entered an invalid ticker symbol"
         redirect_to my_portfolio_path
