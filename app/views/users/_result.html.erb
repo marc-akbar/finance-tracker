@@ -3,5 +3,8 @@
     <strong>Symbol: </strong><%= @stock.ticker %>
     <strong>Name: </strong><%= @stock.name %>
     <strong>Price: </strong><%= @stock.last_price %>
+    <br><br>
+    <%= area_chart @filtered_data, prefix: "$", min: @stock.low.to_i-1, max: @stock.high.to_i+1 %>
+    <%# TODO extend x axis to end of day %>
   </div>
 <% end %>
