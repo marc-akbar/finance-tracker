@@ -1,3 +1,6 @@
+<div class="results-block">
+  <%= bootstrap_flash %>
+</div>
 <% if @stock %>
   <div class="well results-block">
     <strong>Name: </strong><%= @stock.name %><br>
@@ -5,6 +8,5 @@
     <br><br>
     <%= area_chart @filtered_data, prefix: "$", discrete: true, xtitle: "Eastern Standard Time",
                     points: false, min: @stock.low.to_i-1, max: @stock.high.to_i+1 %>
-    <%# TODO extend x axis to end of day %>
   </div>
 <% end %>
