@@ -1,8 +1,15 @@
-<div class="results-block">
-  <%= bootstrap_flash %>
-</div>
+<% if params[:action] == 'search' %>
+  <div class="results-block">
+    <%= bootstrap_flash %>
+  </div>
+<% end %>
+
 <% if @stock %>
   <div class="well results-block">
+    <div id="follow">
+      <%= link_to "Follow #{@stock.ticker}", user_stocks_path(user: current_user, stock_ticker: @stock.ticker),
+                                            class: "btn btn-xs btn-primary", method: :post %>
+    </div>
     <strong>Name: </strong><%= @stock.name %><br>
     <strong>Latest Price: </strong>$<%= number_with_precision(@stock.last_price, :precision => 2, :delimiter => ',') %>
     <br><br>
