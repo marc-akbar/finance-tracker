@@ -17,7 +17,7 @@ gem 'devise-bootstrap-views'
 gem 'stock_quote'
 gem 'font-awesome-rails'
 gem 'hirb'
-gem 'chartkick'
+gem 'chartkick', '>=3.2.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
