@@ -21,7 +21,9 @@
         <%= render 'result' %>
       </div>
     </div>
-    <div class="col-md-4">
-      <%= render 'stocks/list' %>
-    </div>
+    <% if current_user.stocks.first %>
+      <div class="col-md-4">
+        <%= render 'stocks/list' %>
+      </div>
+    <% end %>
   </div>
