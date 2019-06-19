@@ -12,8 +12,8 @@ class StocksController < ApplicationController
         @data = (0..@minutes.length-1).map do |num|
           [@minutes[num], @average_prices[num]]
         end
-        # filter out average prices = -1 in chart data
-        @filtered_data = @data.select{ |element| element[1] >= 0}
+        # filter out average prices = nil in chart data
+        @filtered_data = @data.select{ |element| element[1] != nil}
       else
         flash.now[:danger] = "You have entered an invalid ticker symbol"
       end
