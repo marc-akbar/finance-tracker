@@ -15,6 +15,11 @@
  *= require_self
  */
 
+ /* puts the follow button in the top right of div */
+ #follow {
+    float: right;
+ }
+
 .results-block {
   display: inline-block;
   width: 100%;
@@ -24,7 +29,14 @@
   padding: 0 !important;
 }
 
-/* puts the follow button in the top right of div */
-#follow {
-   float: right;
+.left-padding {
+  padding-left: 15px !important;
+}
+
+.navbar {
+    background: #e5e9ff;
+}
+
+.well {
+    background: #f7f7f7;
 }
