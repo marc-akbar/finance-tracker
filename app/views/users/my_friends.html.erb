@@ -1,1 +1,40 @@
-<h1>My Friends</h1>
+<h1>Search friends</h1>
+<div class="row">
+<%= render "friends/lookup" %>
+<div class="col-md-5">
+  <% if @friendships.size > 0 %>
+    <table class="table table-responsive table-striped".
+      <thead>
+        <tr>
+          <th colspan="3" class="page-header">
+            <h2>My Friends</h2>
+          </th>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <body>
+        <% @friendships.each do |friend| %>
+          <tr>
+            <td><%= friend.full_name %></td>
+            <td><%= friend.email %></td>
+            <td>
+              <%= link_to "View Portfolio", user_path(friend), class: "btn btn-xs btn-primary" %>
+              <%= link_to "Unfollow", friendship_path(friend),
+                            method: :delete,
+                            data: {confirm: "Are you sure?"},
+                            class: "btn btn-xs btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </body>
+    </table>
+  <% else %>
+    <div class="row col-lg-12">
+      <p class="lead">You don't have any friends yet. Please add some!</p>
+    </div>
+  <% end %>
+</div>

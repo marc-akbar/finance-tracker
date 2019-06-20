@@ -28,4 +28,12 @@ class User < ApplicationRecord
     under_stock_limit? && !stock_already_added?(ticker_symbol)
   end
 
+  # def self.search(param)
+  #   param.strip!
+  #   param.downcase!
+  #   to_send_back =
+  #   return nil unless to_send_back
+  #   to_send_back
+  # end
+
 end

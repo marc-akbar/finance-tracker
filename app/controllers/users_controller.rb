@@ -6,7 +6,11 @@ class UsersController < ApplicationController
   end
 
   def my_friends
-    
+    @friendships = current_user.friends
+  end
+
+  def search
+    @user = User.search(params[:search_param])
   end
 
 end
