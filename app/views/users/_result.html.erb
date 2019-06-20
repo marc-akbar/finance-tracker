@@ -11,7 +11,7 @@
           <%= link_to "Follow #{@stock.name}", user_stocks_path(user: current_user, stock_ticker: @stock.ticker),
                                                 class: "btn btn-xs btn-primary", method: :post %>
       <% else %>
-        <span class="label label-default">
+        <span class="label label-success">
           <% if !current_user.under_stock_limit? %>
             Your portfolio is full
           <% elsif current_user.stock_already_added?(@stock.ticker) %>

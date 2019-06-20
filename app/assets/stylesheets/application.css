@@ -18,7 +18,7 @@
  /* puts the follow button in the top right of div */
  #follow {
     float: right;
- }
+}
 
 .results-block {
   display: inline-block;
