@@ -1,4 +1,4 @@
-<table class="table table-responsive table-striped".
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,7 +16,7 @@
         <td><%= user_stock.ticker %></td>
         <td>$<%= number_with_precision(user_stock.last_price, :precision => 2, :delimiter => ',')%></td>
         <% if @user.id == current_user.id %>
-          <td><%= link_to "Unfollow", user_stock_path(user_stock), method: :delete,
+          <td><%= link_to "Remove", user_stock_path(user_stock), method: :delete,
                           data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger" %>
           </td>
         <% end %>

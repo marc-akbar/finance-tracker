@@ -1,15 +1,10 @@
 <h1>Search friends</h1>
 <div class="row">
 <%= render "friends/lookup" %>
-<div class="col-md-5">
+<div class="well col-md-4">
   <% if @friendships.size > 0 %>
-    <table class="table table-responsive table-striped".
+    <table class="table table-responsive table-striped">
       <thead>
-        <tr>
-          <th colspan="3" class="page-header">
-            <h2>My Friends</h2>
-          </th>
-        </tr>
         <tr>
           <th>Name</th>
           <th>Email</th>
@@ -18,6 +13,7 @@
       </thead>
       <body>
         <% @friendships.each do |friend| %>
+          <%# TODO make each row clickable to profile %>
           <tr>
             <td><%= friend.full_name %></td>
             <td><%= friend.email %></td>
@@ -34,7 +30,7 @@
     </table>
   <% else %>
     <div class="row col-lg-12">
-      <p class="lead">Search for people to follow.</p>
+      <p id="right-justify" class="lead">Search for people to follow.</p>
     </div>
   <% end %>
 </div>

@@ -16,7 +16,12 @@
  */
 
  /* puts the follow button in the top right of div */
- #follow {
+
+body {
+ background: #e5e9ff;  /* fallback for old browsers */
+}
+
+ #right-justify {
     float: right;
 }
 
@@ -34,9 +39,21 @@
 }
 
 .navbar {
-    background: #e5e9ff;
+  background: -webkit-linear-gradient(to top, #e5e9ff, #ffffff);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #e5e9ff, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .well {
-    background: #f7f7f7;
+    /* background: #f7f7f7; */
+}
+
+.center-div {
+  position: absolute;
+  margin: auto;
+  right: 0;
+  left: 0;
+}
+
+.center-text {
+  text-align: center;
 }

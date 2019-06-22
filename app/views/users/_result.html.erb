@@ -4,9 +4,11 @@
   </div>
 <% end %>
 
+<%# TODO make more charts %>
+
 <% if @stock %>
   <div class="well results-block">
-    <div id="follow">
+    <div id="right-justify">
       <% if current_user.can_add_stock?(@stock.ticker) %>
           <%= link_to "Follow #{@stock.name}", user_stocks_path(user: current_user, stock_ticker: @stock.ticker),
                                                 class: "btn btn-xs btn-primary", method: :post %>

@@ -1,4 +1,4 @@
-<h1>My Portfolio</h1>
+<h1>Track Stocks</h1>
 <div class="row">
   <div class="col-md-8">
     <div id="stock-lookup">
@@ -6,7 +6,7 @@
       <%= form_tag search_stocks_path, remote: true, method: :get, id: "stock-lookup-form" do %>
         <div class="form-group row no-padding text-center col-sm-12">
           <div class="col-md-10">
-            <%= text_field_tag :stock, params[:stock], placeholder: "Ticker symbol", autofocus: true,
+            <%= text_field_tag :stock, params[:stock], placeholder: "Enter ticker symbol", autofocus: true,
                                   class: "form-control search-box input-lg" %>
           </div>
           <div class="col-md-2">
@@ -21,9 +21,11 @@
       <%= render 'users/result' %>
     </div>
   </div>
-  <% if current_user.stocks.first %>
-    <div class="col-md-4">
+  <div class="well col-md-4">
+    <% if current_user.stocks.first %>
       <%= render 'stocks/list' %>
-    </div>
-  <% end %>
+    <% else %>
+      <p id="right-justify" class="lead">You are not tracking any stocks.</p>
+    <% end %>
+  </div>
 </div>

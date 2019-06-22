@@ -1,3 +1,13 @@
 <h1>Stock News</h1>
 
-<!-- TODO have news updates -->
+<%# TODO make the whole card clickable to article %>
+<% @user_stocks.each do |user_stock| %>
+  <div class="well well-lg card">
+    <h3 class="card-header"><%= Stock.news(user_stock.ticker).headline %></h3>
+    <div class="card-body">
+      <h5 class="card-title"><%= user_stock.name %></h5>
+      <p class="card-text"><%= truncate(Stock.news(user_stock.ticker).summary, length: 500) %></p>
+      <%= link_to "Go to article", Stock.news(user_stock.ticker).url, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

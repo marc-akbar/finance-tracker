@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   post 'add_friend', to: 'users#add_friend'
 
   resources :user_stocks, only: [:create, :destroy]
-  resources :user, only: [:show]
+  resources :users, only: [:show]
   resources :friendships
 end
