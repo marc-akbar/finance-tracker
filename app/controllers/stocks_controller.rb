@@ -16,6 +16,7 @@ class StocksController < ApplicationController
         @filtered_data = @data.select{ |element| element[1] != nil}
         # convert ot monotary/time format
         @decimal_data = @filtered_data.map{ |element| [element[0].delete_prefix("0"), element[1].round(2)] }
+        @articles = Stock.articles(params[:stock])
       else
         flash.now[:danger] = "You have entered an invalid ticker symbol"
       end

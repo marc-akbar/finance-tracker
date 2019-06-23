@@ -4,7 +4,7 @@
   </div>
 <% end %>
 
-<%# TODO make more charts %>
+<%# TODO make more charts and make news feed clickable option to speed up search %>
 
 <% if @stock %>
   <div class="well results-block">
@@ -17,7 +17,7 @@
           <% if !current_user.under_stock_limit? %>
             Your portfolio is full
           <% elsif current_user.stock_already_added?(@stock.ticker) %>
-            You are already following <%= "#{@stock.name}" %>
+            You are already following <%= @stock.name %>
           <% end %>
         </span>
       <% end %>
@@ -28,5 +28,16 @@
     <%# Uses Charkick to display an chart of stock prices for the most recent day %>
     <%= area_chart @decimal_data, prefix: "$", discrete: true, xtitle: "Eastern Standard Time",
                     points: false, thousands: ",", min: @stock.low.to_i-1, max: @stock.high.to_i+1 %>
+    <br>
+    <%# news feed %>
+    <% @articles.each do |article| %>
+      <div class="well card">
+        <h3 class="card-header"><%= article[0] %></h3>
+        <div class="card-body">
+          <p class="card-text"><%= truncate(article[1], length: 300) %></p>
+          <%= link_to "Go to article", article[2], class: "btn btn-primary", target: "_blank" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 <% end %>

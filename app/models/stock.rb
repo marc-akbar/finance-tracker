@@ -39,6 +39,33 @@ class Stock < ApplicationRecord
     new(headline: looked_up_stock.headline, url: looked_up_stock.url, summary: looked_up_stock.summary)
   end
 
-  # TODO grab all article from certain company and display without querying ever HTTP request
+  def self.headlines(ticker_symbol)
+    client = IEX::Api::Client.new(publishable_token: 'pk_343c0976e23d447da4aab917d888574e')
+    client.news(ticker_symbol).map do |day|
+      day['headline']
+    end
+  end
+
+  def self.urls(ticker_symbol)
+    client = IEX::Api::Client.new(publishable_token: 'pk_343c0976e23d447da4aab917d888574e')
+    client.news(ticker_symbol).map do |day|
+      day['url']
+    end
+  end
+
+  def self.summaries(ticker_symbol)
+    client = IEX::Api::Client.new(publishable_token: 'pk_343c0976e23d447da4aab917d888574e')
+    client.news(ticker_symbol).map do |day|
+      day['summary']
+    end
+  end
+
+  def self.articles(ticker_symbol)
+    (0..(headlines(ticker_symbol).length-1)).map do |num|
+      [headlines(ticker_symbol)[num], summaries(ticker_symbol)[num], urls(ticker_symbol)[num]]
+    end
+  end
+
+  # TODO grab all article from certain company and display without querying every HTTP request
 
 end
