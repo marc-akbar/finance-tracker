@@ -60,12 +60,4 @@ class Stock < ApplicationRecord
     end
   end
 
-  def self.articles(ticker_symbol)
-    (0..(headlines(ticker_symbol).length-1)).map do |num|
-      [headlines(ticker_symbol)[num], summaries(ticker_symbol)[num], urls(ticker_symbol)[num]]
-    end
-  end
-
-  # TODO grab all article from certain company and display without querying every HTTP request
-
 end
