@@ -25,9 +25,10 @@
     <strong>Name: </strong><%= @stock.name %><br>
     <strong>Latest Price: </strong>$<%= number_with_precision(@stock.last_price, :precision => 2, :delimiter => ',') %>
     <br><br>
+    <% # TODO fix max and min in chart %>
     <%# Uses Charkick to display an chart of stock prices for the most recent day %>
     <%= area_chart @decimal_data, prefix: "$", discrete: true, xtitle: "Eastern Standard Time",
-                    points: false, thousands: ",", min: @stock.low.to_i-1, max: @stock.high.to_i+1 %>
+                    points: false, thousands: "," %>
     <br>
     <%# news feed %>
     <% @articles.each do |article| %>

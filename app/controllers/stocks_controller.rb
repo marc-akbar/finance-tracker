@@ -17,7 +17,7 @@ class StocksController < ApplicationController
         end
         # filter out average prices = nil in chart data
         @filtered_data = @data.select{ |element| element[1] != nil}
-        # convert ot monotary/time format
+        # convert to monotary/time format
         @decimal_data = @filtered_data.map{ |element| [element[0].delete_prefix("0"), element[1].round(2)] }
         @articles = (0..@headlines.length-1).map do |num|
           [@headlines[num], @summaries[num], @urls[num]]
