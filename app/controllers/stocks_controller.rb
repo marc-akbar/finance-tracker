@@ -16,7 +16,9 @@ class StocksController < ApplicationController
           [@minutes[num], @average_prices[num]]
         end
         # filter out average prices = nil in chart data
-        @filtered_data = @data.select{ |element| element[1] != nil}
+        @filtered_data = @data.select{ |element| element[1] != nil }
+        # filter price data to replace low/high in chart since API is unreliable
+        @filtered_prices = @average_prices.select { |price| price != nil }
         # convert to monotary/time format
         @decimal_data = @filtered_data.map{ |element| [element[0].delete_prefix("0"), element[1].round(2)] }
         @articles = (0..@headlines.length-1).map do |num|
