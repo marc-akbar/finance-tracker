@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    if current_user.stocks
+    if current_user.stocks.present?
       @stocks = user_stock_tickers
     else
       @stocks = popular_stocks
