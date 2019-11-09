@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # Tells devise to look at the user/registrations folder first
-  devise_for :users, :controllers => { :registrations => "user/registrations" }
+  devise_for :users, controllers: { registrations: 'user/registrations' }
 
   root 'welcome#index'
   get 'my_portfolio', to: 'users#my_portfolio'
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'search_friends', to: 'users#search'
   post 'add_friend', to: 'users#add_friend'
 
-  resources :user_stocks, only: [:create, :destroy]
+  resources :user_stocks, only: %i[create destroy]
   resources :users, only: [:show]
   resources :friendships
 end

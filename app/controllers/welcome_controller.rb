@@ -1,23 +1,20 @@
 class WelcomeController < ApplicationController
-
   def index
-    if current_user.stocks.present?
-      @stocks = user_stock_tickers
-    else
-      @stocks = popular_stocks
-    end
+    @stocks = if current_user.stocks.present?
+                user_stock_tickers
+              else
+                popular_stocks
+              end
   end
 
   private
 
   def popular_stocks
-    ['AMZN', 'FB', 'MSFT', 'BABA', 'GOOG', 'CELG', 'DIS', 'NFLX', 'V', 'MA', 'TSLA', 'BYND']
+    %w[AMZN FB MSFT BABA GOOG CELG DIS NFLX V MA TSLA BYND]
   end
 
   def user_stock_tickers
-    current_user.stocks.map do |stock|
-      stock.ticker
-    end
+    current_user.stocks.map(&:ticker)
   end
 
   def create_articles(stock)
@@ -30,5 +27,4 @@ class WelcomeController < ApplicationController
     end
   end
   helper_method :create_articles
-
 end

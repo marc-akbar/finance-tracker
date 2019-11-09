@@ -1,8 +1,7 @@
 class StocksController < ApplicationController
-
   def search
     if params[:stock].blank?
-      flash.now[:danger] = "You have entered an empty search string"
+      flash.now[:danger] = 'You have entered an empty search string'
     else
       assign_stock
       if @stock
@@ -12,7 +11,7 @@ class StocksController < ApplicationController
         chart_format
         create_articles
       else
-        flash.now[:danger] = "You have entered an invalid ticker symbol"
+        flash.now[:danger] = 'You have entered an invalid ticker symbol'
       end
     end
     respond_to do |format|
@@ -33,17 +32,17 @@ class StocksController < ApplicationController
 
   def filter_chart_data
     # associate stock price with time and put in chart format
-    @data = (0..@minutes.length-1).map do |num|
+    @data = (0..@minutes.length - 1).map do |num|
       [@minutes[num], @average_prices[num]]
     end
     # filter out average prices = nil in chart data
-    @filtered_data = @data.select{ |element| element[1] != nil }
+    @filtered_data = @data.reject { |element| element[1].nil? }
     # filter price data to replace low/high in chart since API is unreliable
-    @filtered_prices = @average_prices.select { |price| price != nil }
+    @filtered_prices = @average_prices.reject(&:nil?)
   end
 
   def chart_format
-    @decimal_data = @filtered_data.map{ |element| [element[0].delete_prefix("0"), element[1].round(2)] }
+    @decimal_data = @filtered_data.map { |element| [element[0].delete_prefix('0'), element[1].round(2)] }
   end
 
   def assign_news_data
@@ -53,9 +52,8 @@ class StocksController < ApplicationController
   end
 
   def create_articles
-    @articles = (0..@headlines.length-1).map do |num|
+    @articles = (0..@headlines.length - 1).map do |num|
       [@headlines[num], @summaries[num], @urls[num]]
     end
   end
-
 end

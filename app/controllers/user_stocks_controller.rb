@@ -1,5 +1,4 @@
 class UserStocksController < ApplicationController
-
   def create
     stock = Stock.find_by_ticker(params[:stock_ticker])
     if stock.blank?
@@ -18,5 +17,4 @@ class UserStocksController < ApplicationController
     flash[:notice] = "#{stock.name} was successfully removed from your portfolio"
     redirect_to my_portfolio_path
   end
-
 end
