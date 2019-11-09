@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def my_portfolio
     @user = current_user
     @user_stocks = current_user.stocks
+    update_user_stocks
   end
 
   def my_friends
@@ -36,6 +37,17 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_stocks = @user.stocks
+    update_user_stocks
+  end
+
+  private
+
+  def update_user_stocks
+    @user_stocks.each do |user_stock|
+      lookup_price = Stock.new_from_lookup(user_stock.ticker).last_price
+      next unless user_stock.last_price != lookup_price
+      user_stock.update(last_price: lookup_price)
+    end
   end
 
 end

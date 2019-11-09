@@ -4,8 +4,6 @@
   </div>
 <% end %>
 
-<%# TODO make more charts, make news feed clickable option, and speed up search %>
-
 <% if @stock %>
   <div class="well results-block">
     <div id="right-justify">
@@ -22,14 +20,17 @@
         </span>
       <% end %>
     </div>
+
     <strong>Name: </strong><%= @stock.name %><br>
     <strong>Latest Price: </strong>$<%= number_with_precision(@stock.last_price, :precision => 2, :delimiter => ',') %>
     <br><br>
-    <% # TODO fix max and min in chart %>
+
     <%# Uses Charkick to display an chart of stock prices for the most recent day %>
     <%= area_chart @decimal_data, prefix: "$", discrete: true, xtitle: "Eastern Standard Time",
-                    points: false, thousands: ",", min: @filtered_prices.min-1, max: @filtered_prices.max+1 %>
+                    points: false, thousands: ",", min: @filtered_prices.min-1, max: @filtered_prices.max+1,
+                    download: {filename: "#{@stock.ticker}_#{Date.today}", background: "#ffffff"} %>
     <br>
+
     <%# news feed %>
     <% @articles.each do |article| %>
       <div class="well card">
