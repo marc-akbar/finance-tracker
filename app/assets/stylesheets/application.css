@@ -21,8 +21,8 @@ body {
  background: #e5e9ff;  /* fallback for old browsers */
 }
 
- #right-justify {
-    float: right;
+#right-justify {
+  float: right;
 }
 
 .results-block {
@@ -58,4 +58,8 @@ div.sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 15px;
+}
+
+.light-text {
+  color: #737373;
 }

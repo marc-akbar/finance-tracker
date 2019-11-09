@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
   private
 
   def popular_stocks
-    ['AMZN', 'FB', 'MSFT', 'BABA', 'GOOG', 'CELG', 'DIS', 'NFLX', 'V']
+    ['AMZN', 'FB', 'MSFT', 'BABA', 'GOOG', 'CELG', 'DIS', 'NFLX', 'V', 'MA', 'TSLA', 'BYND']
   end
 
   def user_stock_tickers

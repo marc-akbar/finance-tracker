@@ -25,21 +25,29 @@
     <strong>Latest Price: </strong>$<%= number_with_precision(@stock.last_price, :precision => 2, :delimiter => ',') %>
     <br><br>
 
-    <%# Uses Charkick to display an chart of stock prices for the most recent day %>
-    <%= area_chart @decimal_data, prefix: "$", discrete: true, xtitle: "Eastern Standard Time",
-                    points: false, thousands: ",", min: @filtered_prices.min-1, max: @filtered_prices.max+1,
-                    download: {filename: "#{@stock.ticker}_#{Date.today}", background: "#ffffff"} %>
+    <% if @decimal_data != [] %>
+      <%# Uses Charkick to display an chart of stock prices for the most recent day %>
+      <%= area_chart @decimal_data, prefix: "$", discrete: true, xtitle: "Eastern Standard Time",
+                      points: false, thousands: ",", min: @filtered_prices.min-1, max: @filtered_prices.max+1,
+                      download: {filename: "#{@stock.ticker}_#{Date.today}", background: "#ffffff"} %>
+    <% else %>
+      <p class="center-text light-text">No chart data</p>
+    <% end %>
     <br>
 
     <%# news feed %>
-    <% @articles.each do |article| %>
-      <div class="well card">
-        <h3 class="card-header"><%= article[0] %></h3>
-        <div class="card-body">
-          <p class="card-text"><%= truncate(article[1], length: 300) %></p>
-          <%= link_to "Go to article", article[2], class: "btn btn-primary", target: "_blank" %>
+    <% if @articles != [] %>
+      <% @articles.each do |article| %>
+        <div class="well card">
+          <h3 class="card-header"><%= article[0] %></h3>
+          <div class="card-body">
+            <p class="card-text"><%= truncate(article[1], length: 300) %></p>
+            <%= link_to "Go to article", article[2], class: "btn btn-primary", target: "_blank" %>
+          </div>
         </div>
-      </div>
+      <% end %>
+      <% else %>
+        <p class="center-text light-text">No news</p>
     <% end %>
   </div>
 <% end %>
