@@ -107,6 +107,8 @@ GEM
     ffi (1.11.1-x86-mingw32)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
+    geckodriver-helper (0.24.0)
+      archive-zip (~> 0.7)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (3.6.0)
@@ -329,6 +331,7 @@ DEPENDENCIES
   devise-bootstrap-views
   factory_bot_rails
   font-awesome-rails
+  geckodriver-helper
   hirb
   iex-ruby-client
   jbuilder (~> 2.5)

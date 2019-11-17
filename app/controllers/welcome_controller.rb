@@ -14,7 +14,7 @@ class WelcomeController < ApplicationController
   end
 
   def user_stock_tickers
-    current_user.stocks.map(&:ticker)
+    current_user.stocks.map { |s| [s.ticker.delete('.'), s.ticker] }.to_h
   end
 
   def create_articles(stock)

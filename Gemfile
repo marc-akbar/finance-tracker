@@ -44,6 +44,7 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem 'geckodriver-helper'
   gem 'chromedriver-helper'
   gem 'simplecov'
 end
