@@ -2,22 +2,15 @@ require 'rails_helper'
 
 RSpec.describe "Stocks Management", type: :feature, js: true do
 
-  context "as a non logged-in user" do
-    it "redirects when visiting the home page" do
-      visit "/"
-
-      expect(current_path).to eq("/users/sign_in")
-      expect(page).to have_content "You need to sign in or sign up before continuing."
-    end
-  end
-
   context 'as a logged-in user' do
     let(:user) { create(:user, first_name: 'Harry', last_name: 'Potter') }
     before { login_as user }
 
-    it 'lets you see the home page' do
+    it 'shows the news for popular stocks when not following stocks' do
       visit "/"
-      expect(current_path).to eq("/")
+      expect(page).to have_text "AMZN"
+      expect(page).to have_text "GOOG"
+      expect(page).to have_text "BRK.A"
     end
 
     it 'shows the news for all the stocks you are following' do
@@ -34,7 +27,7 @@ RSpec.describe "Stocks Management", type: :feature, js: true do
       fill_in 'Enter ticker symbol', with: 'goog'
       click_on 'Search'
 
-      expect(page).to have_content 'Alphabet, Inc.'
+      expect(page).to have_content "Alphabet, Inc."
       expect(page).to have_content 'Go to article'
     end
 
