@@ -4,5 +4,5 @@ FactoryBot.define do
     friend
   end
 
-  factory :friend, parent: :user, class: "Friend"
+  factory :friend, parent: :user, class: 'Friend'
 end
