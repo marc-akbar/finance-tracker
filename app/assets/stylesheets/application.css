@@ -48,30 +48,30 @@ body {
 .navbar-brand {
   font-size: 2em;
   padding-right: 40px;
-  color: #4764ff !important
+  color: #4764ff !important;
 }
 
 .navbar-brand:hover, .navbar-brand:active {
-  color: #1438ff !important
+  color: #1438ff !important;
 }
 
 /* Navbar links */
 .top-link {
-  color: #4764ff !important
+  color: #4764ff !important;
 }
 
 .top-link:hover, .top-link:active {
-  color: #1438ff !important
+  color: #1438ff !important;
 }
 
 /* Tabs on home page */
 .nav-link {
   font-size: 1.25em;
-  color: #000000;
+  color: #1438ff;
 }
 
 .nav-link:hover, .nav-link:active {
-  color: #1438ff;
+  color: #000000;
 }
 
 li.nav-item > a {
@@ -79,7 +79,23 @@ li.nav-item > a {
 }
 
 .card {
-  padding: 30px 20px 30px 50px;
+  color: #000000 !important;
+}
+
+.card:hover, .card:active {
+  text-decoration: none;
+}
+
+.card-header {
+  font-weight: bold;
+  padding-left: 70px;
+  padding-right: 100px;
+  padding-bottom: 15px;
+}
+
+.card-body {
+  padding-left: 76px;
+  padding-right: 100px;
 }
 
 .center-div {

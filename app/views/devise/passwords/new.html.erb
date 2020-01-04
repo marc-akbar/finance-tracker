@@ -1,4 +1,5 @@
-<h1><%= t('.forgot_your_password') %></h1>
+<h1 class="center-text"><%= t('.forgot_your_password') %></h1>
+<br>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= bootstrap_devise_error_messages! %>

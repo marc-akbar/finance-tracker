@@ -1,5 +1,5 @@
-<br><br>
 <div class="row">
+  <br><br>
   <div class="col-md-2 sticky">
     <ul class="nav flex-column" id="myTab" role="tablist">
       <% @stocks.each do |stripped_ticker, ticker| %>
@@ -15,13 +15,14 @@
       <% @stocks.each do |stripped_ticker, ticker| %>
         <div class="tab-pane fade" id="<%= stripped_ticker %>" role="tabpanel" aria-labelledby="<%= stripped_ticker %>-tab">
           <% create_articles(ticker).each do |article| %>
-              <div class="card">
+              <a class="card" <%= link_to article[2], target: "_blank" do %>
                 <h1 class="card-header"><%= article[0] %></h1>
                 <div class="card-body">
                   <p class="card-text"><%= truncate(article[1], length: 500) %></p>
-                  <%= link_to "Go to article", article[2], class: "btn btn-primary", target: "_blank" %>
                 </div>
-              </div>
+                <% end %>
+              </a>
+              <br><br><br>
           <% end %>
         </div>
       <% end %>
