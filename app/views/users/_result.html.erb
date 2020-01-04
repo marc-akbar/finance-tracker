@@ -6,7 +6,7 @@
 
 <% if @stock %>
   <div class="results-block">
-    <div id="right-justify">
+    <div class="right-justify">
       <% if current_user.can_add_stock?(@stock.ticker) %>
           <%= link_to "Follow #{@stock.name}", user_stocks_path(user: current_user, stock_ticker: @stock.ticker),
                                                 class: "btn btn-xs btn-primary", method: :post %>
@@ -20,16 +20,13 @@
         </span>
       <% end %>
     </div>
-
-    <strong>Name: </strong><%= @stock.name %><br>
-    <strong>Latest Price: </strong>$<%= number_with_precision(@stock.last_price, :precision => 2, :delimiter => ',') %>
-    <br><br>
+    <h2 id="stock-result-name"><%= @stock.name %></h2>
+    <h2 id="stock-result-price">$<%= number_with_precision(@stock.last_price, :precision => 2, :delimiter => ',') %></h2>
 
     <% if @decimal_data != [] %>
       <%# Uses Charkick to display an chart of stock prices for the most recent day %>
-      <%= area_chart @decimal_data, height: "500px", prefix: "$", discrete: true, xtitle: "Eastern Standard Time",
-                      points: false, thousands: ",", min: @filtered_prices.min-1, max: @filtered_prices.max+1,
-                      download: {filename: "#{@stock.ticker}_#{Date.today}", background: "#ffffff"} %>
+      <%= area_chart @decimal_data, min: @filtered_prices.min-1, max: @filtered_prices.max+1,
+                    download: {filename: "#{@stock.ticker}_#{Date.today}", background: "#ffffff"} %>
     <% else %>
       <p class="center-text light-text">No chart data</p>
     <% end %>

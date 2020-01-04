@@ -21,7 +21,17 @@ body {
  background: #f2f4ff;  /* fallback for old browsers */
 }
 
-#right-justify {
+#stock-result-name {
+  margin: 0 0 0 18px;
+  letter-spacing: -2.2px;
+}
+
+#stock-result-price {
+  margin: 0 0 0 18px;
+  letter-spacing: -1px;
+}
+
+.right-justify {
   float: right;
 }
 
@@ -51,7 +61,7 @@ body {
 /* Navbar title */
 .navbar-brand {
   font-size: 2em;
-  padding-right: 40px;
+  margin-right: 40px;
   color: #4764ff !important;
 }
 
@@ -92,14 +102,16 @@ li.nav-item > a {
 
 .card-header {
   font-weight: bold;
-  padding-left: 70px;
-  padding-right: 100px;
-  padding-bottom: 15px;
+  padding: 0;
+  margin-left: 70px;
+  margin-right: 100px;
+  margin-bottom: 15px;
 }
 
 .card-body {
-  padding-left: 76px;
-  padding-right: 100px;
+  padding: 0 0 0 2px;
+  margin-left: 70px;
+  margin-right: 100px;
 }
 
 .center-div {
