@@ -5,7 +5,7 @@
 <% end %>
 
 <% if @stock %>
-  <div class="well results-block">
+  <div class="results-block">
     <div id="right-justify">
       <% if current_user.can_add_stock?(@stock.ticker) %>
           <%= link_to "Follow #{@stock.name}", user_stocks_path(user: current_user, stock_ticker: @stock.ticker),
@@ -27,7 +27,7 @@
 
     <% if @decimal_data != [] %>
       <%# Uses Charkick to display an chart of stock prices for the most recent day %>
-      <%= area_chart @decimal_data, prefix: "$", discrete: true, xtitle: "Eastern Standard Time",
+      <%= area_chart @decimal_data, height: "500px", prefix: "$", discrete: true, xtitle: "Eastern Standard Time",
                       points: false, thousands: ",", min: @filtered_prices.min-1, max: @filtered_prices.max+1,
                       download: {filename: "#{@stock.ticker}_#{Date.today}", background: "#ffffff"} %>
     <% else %>
@@ -38,13 +38,14 @@
     <%# news feed %>
     <% if @articles != [] %>
       <% @articles.each do |article| %>
-        <div class="well card">
+        <a class="card" <%= link_to article[2], target: "_blank" do %>
           <h3 class="card-header"><%= article[0] %></h3>
           <div class="card-body">
-            <p class="card-text"><%= truncate(article[1], length: 300) %></p>
-            <%= link_to "Go to article", article[2], class: "btn btn-primary", target: "_blank" %>
+            <p class="card-text"><%= truncate(article[1], length: 500) %></p>
           </div>
-        </div>
+        <% end %>
+        </a>
+        <br><br><br>
       <% end %>
       <% else %>
         <p class="center-text light-text">No news</p>

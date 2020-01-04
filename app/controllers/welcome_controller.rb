@@ -25,8 +25,7 @@ class WelcomeController < ApplicationController
     headlines = Stock.headlines(stock)
     urls = Stock.urls(stock)
     summaries = Stock.summaries(stock)
-    # top five news articles
-    (0..4).map do |num|
+    (0..8).map do |num|
       [headlines[num], summaries[num], urls[num]]
     end
   end

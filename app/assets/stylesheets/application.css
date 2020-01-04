@@ -44,6 +44,10 @@ body {
   padding: 20px;
 }
 
+.navbar-default {
+  border: none;
+}
+
 /* Navbar title */
 .navbar-brand {
   font-size: 2em;
@@ -71,7 +75,7 @@ body {
 }
 
 .nav-link:hover, .nav-link:active {
-  color: #000000;
+  color: #212529;
 }
 
 li.nav-item > a {
@@ -79,7 +83,7 @@ li.nav-item > a {
 }
 
 .card {
-  color: #000000 !important;
+  color: #212529 !important;
 }
 
 .card:hover, .card:active {
@@ -118,6 +122,7 @@ div.sticky {
 .results-block {
   display: inline-block;
   width: 100%;
+  padding-right: 45px;
 }
 
 .no-padding {
