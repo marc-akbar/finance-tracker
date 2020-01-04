@@ -1,5 +1,7 @@
-<div class="col-md-4 center-div">
-  <h1 class="center-text"><%= t('.sign_in') %></h1>
+<%# Used for background image called in application layout %>
+<% @home_page = true %>
+<div class="col-md-4 center-div vertical-align">
+  <h1 class="center-text login-title"><%= t('.sign_in') %></h1>
   <br>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -23,9 +25,7 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.submit  t('.sign_in'), class: 'btn btn-primary' %>
+      <%= f.submit  t('.sign_in'), class: 'btn btn-primary padded-btn' %>
     </div>
   <% end %>
-
-  <%#= render 'devise/shared/links' %>
 </div>
