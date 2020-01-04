@@ -1,27 +1,32 @@
-<h1>Stock News</h1>
-
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <% @stocks.each do |stripped_ticker, ticker| %>
-    <li class="nav-item">
-      <a class="nav-link" id="<%= stripped_ticker %>-tab" data-toggle="tab" href="#<%= stripped_ticker %>" role="tab"
-         aria-controls="home" aria-selected="false"><%= ticker %></a>
-    </li>
-  <% end %>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <% @stocks.each do |stripped_ticker, ticker| %>
-    <div class="tab-pane fade" id="<%= stripped_ticker %>" role="tabpanel" aria-labelledby="<%= stripped_ticker %>-tab">
-      <% create_articles(ticker).each do |article| %>
-          <div class="well well-lg card">
-            <h3 class="card-header"><%= article[0] %></h3>
-            <div class="card-body">
-              <p class="card-text"><%= truncate(article[1], length: 500) %></p>
-              <%= link_to "Go to article", article[2], class: "btn btn-primary", target: "_blank" %>
-            </div>
-          </div>
+<br><br>
+<div class="row">
+  <div class="col-md-2 sticky">
+    <ul class="nav flex-column" id="myTab" role="tablist">
+      <% @stocks.each do |stripped_ticker, ticker| %>
+        <li class="nav-item">
+          <a class="nav-link" id="<%= stripped_ticker %>-tab" data-toggle="tab" href="#<%= stripped_ticker %>" role="tab"
+             aria-controls="home" aria-selected="false"><%= ticker %></a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="tab-content" id="myTabContent">
+      <% @stocks.each do |stripped_ticker, ticker| %>
+        <div class="tab-pane fade" id="<%= stripped_ticker %>" role="tabpanel" aria-labelledby="<%= stripped_ticker %>-tab">
+          <% create_articles(ticker).each do |article| %>
+              <div class="card">
+                <h1 class="card-header"><%= article[0] %></h1>
+                <div class="card-body">
+                  <p class="card-text"><%= truncate(article[1], length: 500) %></p>
+                  <%= link_to "Go to article", article[2], class: "btn btn-primary", target: "_blank" %>
+                </div>
+              </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
 
 <script>

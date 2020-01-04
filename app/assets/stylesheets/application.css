@@ -18,29 +18,68 @@
  /* puts the follow button in the top right of div */
 
 body {
- background: #e5e9ff;  /* fallback for old browsers */
+ background: #f2f4ff;  /* fallback for old browsers */
 }
 
 #right-justify {
   float: right;
 }
 
-.results-block {
-  display: inline-block;
-  width: 100%;
+/* Container for application */
+.container-fluid {
+  max-width: 87%;
 }
 
-.no-padding {
-  padding: 0 !important;
-}
-
-.left-padding {
-  padding-left: 15px !important;
+/* Container for navbar */
+.nav-container {
+  max-width: 99%;
 }
 
 .navbar {
-  background: -webkit-linear-gradient(to top, #e5e9ff 60%, #ffffff);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #e5e9ff 60%, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to top, #f2f4ff 60%, #ffffff);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #f2f4ff 60%, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+/* Navbar title */
+.navbar-brand {
+  font-size: 2em;
+  padding-right: 40px;
+  color: #4764ff !important
+}
+
+.navbar-brand:hover, .navbar-brand:active {
+  color: #1438ff !important
+}
+
+/* Navbar links */
+.top-link {
+  color: #4764ff !important
+}
+
+.top-link:hover, .top-link:active {
+  color: #1438ff !important
+}
+
+/* Tabs on home page */
+.nav-link {
+  font-size: 1.25em;
+  color: #000000;
+}
+
+.nav-link:hover, .nav-link:active {
+  color: #1438ff;
+}
+
+li.nav-item > a {
+  padding: 15px 20px 15px 90px;
+}
+
+.card {
+  padding: 30px 20px 30px 50px;
 }
 
 .center-div {
@@ -58,6 +97,19 @@ div.sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 15px;
+}
+
+.results-block {
+  display: inline-block;
+  width: 100%;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.left-padding {
+  padding-left: 15px !important;
 }
 
 .light-text {
