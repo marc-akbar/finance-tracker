@@ -29,6 +29,26 @@ body {
 #stock-result-price {
   margin: 0 0 0 18px;
   letter-spacing: -1px;
+  font-size: 25px;
+}
+
+#user-name {
+  margin: 0 0 0 15px;
+  letter-spacing: -2.2px;
+}
+
+#user-email {
+  margin: 0 0 0 17px;
+  letter-spacing: -1.2px;
+}
+
+/* .well {
+  background-color: #f2f4ff;
+} */
+
+/* Alert opacity */
+.fade.in {
+  opacity: 0.85;
 }
 
 .home-image {
@@ -125,6 +145,15 @@ li.nav-item > a {
   margin-right: 100px;
 }
 
+.table td {
+  vertical-align: middle !important;
+  border-top: none !important;
+}
+
+.table td:first-child {
+  font-weight: 600;
+}
+
 .center-div {
   position: absolute;
   margin: auto;
@@ -148,10 +177,10 @@ li.nav-item > a {
   padding: 10px 50px 10px 50px;
 }
 
-div.sticky {
+.sticky {
   position: -webkit-sticky;
   position: sticky;
-  top: 15px;
+  top: 150px;
 }
 
 .results-block {

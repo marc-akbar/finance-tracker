@@ -1,22 +1,14 @@
-<h1>Search friends</h1>
+<br><br>
 <div class="row">
 <%= render "friends/lookup" %>
 <div class="col-md-4">
   <% if @friendships.size > 0 %>
-    <div class="well">
-      <table class="table table-responsive table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
+    <div class="card">
+      <table class="table table-responsive table-hover">
         <body>
           <% @friendships.each do |friend| %>
             <tr>
-              <td><%= friend.full_name %></td>
-              <td><%= friend.email %></td>
+              <td><%= friend.full_name %><br><%= friend.email %></td>
               <td>
                 <%= link_to "View Portfolio", user_path(friend), class: "btn btn-xs btn-info" %>
                 <%= link_to "Unfollow", friendship_path(friend),

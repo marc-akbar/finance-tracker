@@ -1,20 +1,9 @@
-<div class="well">
-  <table class="table table-responsive table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Symbol</th>
-        <th>Price</th>
-        <% if @user.id == current_user.id %>
-          <th>Action</th>
-        <% end %>
-      </tr>
-    </thead>
+<div class="card">
+  <table class="table table-responsive table-hover">
     <body>
       <% @user_stocks.each do |user_stock| %>
         <tr>
-          <td><%= user_stock.name %></td>
-          <td><%= user_stock.ticker %></td>
+          <td><%= user_stock.name %><br><%= user_stock.ticker %></td>
           <td>$<%= number_with_precision(user_stock.last_price, :precision => 2, :delimiter => ',')%></td>
           <% if @user.id == current_user.id %>
             <td><%= link_to "Remove", user_stock_path(user_stock), method: :delete,
