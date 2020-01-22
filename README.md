@@ -13,6 +13,9 @@ Added functionality outside of course:
 - Linting with Rubocop.
 - Updated UI.
 
+Clone with:
+git clone git@github.com:marc-akbar/finance-tracker.git
+
 Ruby 2.6.0
 Rails 5.2.3
 
