@@ -42,10 +42,6 @@ body {
   letter-spacing: -1.2px;
 }
 
-/* .well {
-  background-color: #f2f4ff;
-} */
-
 /* Alert opacity */
 .fade.in {
   opacity: 0.85;
@@ -166,7 +162,7 @@ li.nav-item > a {
 }
 
 .vertical-align {
-  top: 200px;
+  padding-top: 1em;
 }
 
 .right-justify {
