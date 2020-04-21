@@ -14,8 +14,13 @@
  *= require_tree .
  *= require_self
  */
+@media only screen and (max-width: 576px) {
+  #home-page {  max-width: 90% !important; }
+}
 
- /* puts the follow button in the top right of div */
+@media only screen and (max-width: 992px) {
+  #home-page {  max-width: 40%; }
+}
 
 body {
  background: #f2f4ff;  /* fallback for old browsers */
@@ -162,7 +167,7 @@ li.nav-item > a {
 }
 
 .vertical-align {
-  padding-top: 1em;
+  top: 23%;
 }
 
 .right-justify {

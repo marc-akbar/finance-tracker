@@ -14,13 +14,15 @@ Added functionality outside of course:
 - Updated UI.
 
 Clone with:
-`git clone git@github.com:marc-akbar/finance-tracker.git`
+
+`$ git clone git@github.com:marc-akbar/finance-tracker.git`
 
 Ensure ruby `2.6.0` is installed:
-RVM: `rvm install ruby-2.6.0`
-ASDF: `asdf install ruby 2.6.0`
+- RVM: `$ rvm install ruby-2.6.0`
+- ASDF: `$ asdf install ruby 2.6.0`
 
 Ensure dependencies are installed:
-`bundle install`
+
+`$ bundle install`
 
 URL: http://marc-finance-tracker.herokuapp.com/
